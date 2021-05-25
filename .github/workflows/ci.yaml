@@ -21,4 +21,5 @@ jobs:
         run: docker build --file ${file} --no-cache --tag ${registry}/${user}/${repository}:${tagname} ${PWD}
       - name: run
         run: docker run --detach --entrypoint python --name ${repository} --volume "${PWD}/data:/data" ${registry}/${user}/${repository}:${tagname} anagrams.py
-     
+      - name: test
+        run: while true ; do sleep ${sleep} ; docker logs ${repository} 2>& 1 | grep "${pattern}" && break ; done
