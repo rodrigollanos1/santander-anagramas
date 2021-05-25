@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: santander-anagrams-job
+  labels:
+    app: santander-anagrams-job
+spec:
+  containers:
+    - name: hello-openshift
+      image: openshift/hello-openshift
+      ports:
+        - containerPort: 8080
