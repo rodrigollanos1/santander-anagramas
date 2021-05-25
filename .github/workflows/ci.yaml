@@ -1,0 +1,19 @@
+name: ci
+on: 
+  push:
+    branches:
+      - docker
+jobs:
+  Dockerfile:
+    env:
+      file: Dockerfile
+      registry: index.docker.io
+      repository: santander-anagrams
+      tagname: ci
+      user: rodrigollanos1  
+    runs-on: ubuntu-18.04
+    steps:
+      - name: chackout
+        uses: actions/checkout@v2
+      - name: build
+        run: docker build --file ${file} --no-cache --tag ${registry}/${user}/${repository}:${tagname} .
