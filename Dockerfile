@@ -1,7 +1,7 @@
-FROM python:rc-alpine3.13@sha256:f2e44288d2939cd6eedd01d31a5ba0d092abcb978ee369dd98b3e6eabf5ad3d6
+FROM python:3.9.5-alpine3.13@sha256:d2dfb8f0a8b3ab3e2899bba05e53c2b16bc1b8c1fca83637266edb8d1a57dc86
 WORKDIR /app
-COPY src source
+COPY src .
 
 ENTRYPOINT ["python"]
-CMD ["source/anagrams.py"]
+CMD ["anagrams.py"]
 VOLUME /data
